@@ -39,6 +39,8 @@
 		E1620CB6175642760068BCF6 /* MWorksCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1620CB5175642760068BCF6 /* MWorksCore.framework */; };
 		E1620CB8175642A10068BCF6 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1620CB7175642A10068BCF6 /* libboost_system.a */; };
 		E1620CBB175644330068BCF6 /* MouseInputDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1620CB9175644330068BCF6 /* MouseInputDevice.cpp */; };
+		E1620CBE17564B4A0068BCF6 /* MouseTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = E1620CBD17564B4A0068BCF6 /* MouseTracker.m */; };
+		E1620CBF175653CF0068BCF6 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1620C9417563F350068BCF6 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +76,6 @@
 /* Begin PBXFileReference section */
 		E1620C8E17563F350068BCF6 /* MouseInput.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MouseInput.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1620C9417563F350068BCF6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		E1620C9617563F350068BCF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1620C9917563F350068BCF6 /* MouseInput-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MouseInput-Info.plist"; sourceTree = "<group>"; };
 		E1620C9B17563F350068BCF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E1620C9D17563F350068BCF6 /* MouseInput-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MouseInput-Prefix.pch"; sourceTree = "<group>"; };
@@ -85,6 +86,8 @@
 		E1620CB7175642A10068BCF6 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = "/Library/Application Support/MWorks/Developer/lib/libboost_system.a"; sourceTree = "<absolute>"; };
 		E1620CB9175644330068BCF6 /* MouseInputDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInputDevice.cpp; sourceTree = "<group>"; };
 		E1620CBA175644330068BCF6 /* MouseInputDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseInputDevice.h; sourceTree = "<group>"; };
+		E1620CBC17564B4A0068BCF6 /* MouseTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseTracker.h; sourceTree = "<group>"; };
+		E1620CBD17564B4A0068BCF6 /* MouseTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MouseTracker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1620CB6175642760068BCF6 /* MWorksCore.framework in Frameworks */,
+				E1620CBF175653CF0068BCF6 /* AppKit.framework in Frameworks */,
 				E1620CB8175642A10068BCF6 /* libboost_system.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +127,6 @@
 			children = (
 				E1620CB5175642760068BCF6 /* MWorksCore.framework */,
 				E1620C9417563F350068BCF6 /* AppKit.framework */,
-				E1620C9617563F350068BCF6 /* Foundation.framework */,
 				E1620CB7175642A10068BCF6 /* libboost_system.a */,
 			);
 			name = Frameworks;
@@ -132,6 +135,8 @@
 		E1620C9717563F350068BCF6 /* MouseInput */ = {
 			isa = PBXGroup;
 			children = (
+				E1620CBC17564B4A0068BCF6 /* MouseTracker.h */,
+				E1620CBD17564B4A0068BCF6 /* MouseTracker.m */,
 				E1620CBA175644330068BCF6 /* MouseInputDevice.h */,
 				E1620CB9175644330068BCF6 /* MouseInputDevice.cpp */,
 				E1620CA317563FBE0068BCF6 /* MouseInputPlugin.cpp */,
@@ -226,6 +231,7 @@
 			files = (
 				E1620CA517563FBE0068BCF6 /* MouseInputPlugin.cpp in Sources */,
 				E1620CBB175644330068BCF6 /* MouseInputDevice.cpp in Sources */,
+				E1620CBE17564B4A0068BCF6 /* MouseTracker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +279,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MouseInput/MouseInput-Prefix.pch";
 				INFOPLIST_FILE = "MouseInput/MouseInput-Info.plist";

@@ -9,6 +9,8 @@
 #ifndef __MouseInput__MouseInputDevice__
 #define __MouseInput__MouseInputDevice__
 
+#import "MouseTracker.h"
+
 
 BEGIN_NAMESPACE_MW
 
@@ -24,9 +26,15 @@ public:
     explicit MouseInputDevice(const ParameterValueMap &parameters);
     ~MouseInputDevice();
     
+    bool initialize() MW_OVERRIDE;
+    
 private:
     VariablePtr posX;
     VariablePtr posY;
+    
+    NSOpenGLView *mainDisplayView;
+    MouseTracker *tracker;
+    NSTrackingArea *trackingArea;
     
 };
 
@@ -35,3 +43,29 @@ END_NAMESPACE_MW
 
 
 #endif /* !defined(__MouseInput__MouseInputDevice__) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
