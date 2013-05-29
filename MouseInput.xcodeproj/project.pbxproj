@@ -1,0 +1,276 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1620C9217563F350068BCF6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1620C9117563F350068BCF6 /* Cocoa.framework */; };
+		E1620C9C17563F350068BCF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1620C9A17563F350068BCF6 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E1620C8E17563F350068BCF6 /* MouseInput.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MouseInput.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1620C9117563F350068BCF6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E1620C9417563F350068BCF6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E1620C9517563F350068BCF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E1620C9617563F350068BCF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E1620C9917563F350068BCF6 /* MouseInput-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MouseInput-Info.plist"; sourceTree = "<group>"; };
+		E1620C9B17563F350068BCF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E1620C9D17563F350068BCF6 /* MouseInput-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MouseInput-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1620C8B17563F350068BCF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1620C9217563F350068BCF6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1620C8517563F350068BCF6 = {
+			isa = PBXGroup;
+			children = (
+				E1620C9717563F350068BCF6 /* MouseInput */,
+				E1620C9017563F350068BCF6 /* Frameworks */,
+				E1620C8F17563F350068BCF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1620C8F17563F350068BCF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1620C8E17563F350068BCF6 /* MouseInput.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1620C9017563F350068BCF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1620C9117563F350068BCF6 /* Cocoa.framework */,
+				E1620C9317563F350068BCF6 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1620C9317563F350068BCF6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1620C9417563F350068BCF6 /* AppKit.framework */,
+				E1620C9517563F350068BCF6 /* CoreData.framework */,
+				E1620C9617563F350068BCF6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E1620C9717563F350068BCF6 /* MouseInput */ = {
+			isa = PBXGroup;
+			children = (
+				E1620C9817563F350068BCF6 /* Supporting Files */,
+			);
+			path = MouseInput;
+			sourceTree = "<group>";
+		};
+		E1620C9817563F350068BCF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1620C9917563F350068BCF6 /* MouseInput-Info.plist */,
+				E1620C9A17563F350068BCF6 /* InfoPlist.strings */,
+				E1620C9D17563F350068BCF6 /* MouseInput-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1620C8D17563F350068BCF6 /* MouseInput */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1620CA017563F350068BCF6 /* Build configuration list for PBXNativeTarget "MouseInput" */;
+			buildPhases = (
+				E1620C8A17563F350068BCF6 /* Sources */,
+				E1620C8B17563F350068BCF6 /* Frameworks */,
+				E1620C8C17563F350068BCF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MouseInput;
+			productName = MouseInput;
+			productReference = E1620C8E17563F350068BCF6 /* MouseInput.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1620C8617563F350068BCF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "The MWorks Project";
+			};
+			buildConfigurationList = E1620C8917563F350068BCF6 /* Build configuration list for PBXProject "MouseInput" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E1620C8517563F350068BCF6;
+			productRefGroup = E1620C8F17563F350068BCF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1620C8D17563F350068BCF6 /* MouseInput */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1620C8C17563F350068BCF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1620C9C17563F350068BCF6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1620C8A17563F350068BCF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E1620C9A17563F350068BCF6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1620C9B17563F350068BCF6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1620C9E17563F350068BCF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E1620C9F17563F350068BCF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E1620CA117563F350068BCF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MouseInput/MouseInput-Prefix.pch";
+				INFOPLIST_FILE = "MouseInput/MouseInput-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E1620CA217563F350068BCF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MouseInput/MouseInput-Prefix.pch";
+				INFOPLIST_FILE = "MouseInput/MouseInput-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1620C8917563F350068BCF6 /* Build configuration list for PBXProject "MouseInput" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1620C9E17563F350068BCF6 /* Debug */,
+				E1620C9F17563F350068BCF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1620CA017563F350068BCF6 /* Build configuration list for PBXNativeTarget "MouseInput" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1620CA117563F350068BCF6 /* Debug */,
+				E1620CA217563F350068BCF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1620C8617563F350068BCF6 /* Project object */;
+}
