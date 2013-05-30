@@ -32,7 +32,8 @@ MouseInputDevice::MouseInputDevice(const ParameterValueMap &parameters) :
     posY(parameters[MOUSE_POSITION_Y]),
     mainDisplayView(nil),
     tracker(nil),
-    trackingArea(nil)
+    trackingArea(nil),
+    started(false)
 { }
 
 
@@ -84,7 +85,23 @@ bool MouseInputDevice::initialize() {
 }
 
 
+bool MouseInputDevice::startDeviceIO() {
+    started = true;
+    return true;
+}
+
+
+bool MouseInputDevice::stopDeviceIO() {
+    started = false;
+    return true;
+}
+
+
 void MouseInputDevice::postMouseLocation(NSPoint location) const {
+    if (!started) {
+        return;
+    }
+    
     NSPoint locationInPixels = [mainDisplayView convertPointToBacking:location];
     GLdouble mouseX, mouseY, mouseZ;
     

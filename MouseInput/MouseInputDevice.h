@@ -27,6 +27,8 @@ public:
     ~MouseInputDevice();
     
     bool initialize() MW_OVERRIDE;
+    bool startDeviceIO() MW_OVERRIDE;
+    bool stopDeviceIO() MW_OVERRIDE;
     
     void postMouseLocation(NSPoint location) const;
     
@@ -41,6 +43,8 @@ private:
     NSOpenGLView *mainDisplayView;
     MWKMouseTracker *tracker;
     NSTrackingArea *trackingArea;
+    
+    bool started;
     
 };
 
