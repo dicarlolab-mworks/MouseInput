@@ -7,8 +7,16 @@
 //
 
 
-@interface MouseTracker : NSObject
+namespace mw {
+    class MouseInputDevice;  // Forward declaration
+}
 
+
+@interface MWKMouseTracker : NSObject {
+    boost::weak_ptr<mw::MouseInputDevice> mouseInputDeviceWeak;
+}
+
+- (id)initWithMouseInputDevice:(boost::shared_ptr<mw::MouseInputDevice>)mouseInputDevice;
 - (void)mouseEntered:(NSEvent *)theEvent;
 - (void)mouseExited:(NSEvent *)theEvent;
 - (void)mouseMoved:(NSEvent *)theEvent;

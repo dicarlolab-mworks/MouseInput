@@ -53,13 +53,23 @@ MouseInputDevice::~MouseInputDevice() {
 
 
 bool MouseInputDevice::initialize() {
+    {
+        boost::shared_ptr<StimulusDisplay> display = StimulusDisplay::getCurrentStimulusDisplay();
+        OpenGLContextLock ctxLock = display->setCurrent(0);
+        
+        // Get the parameters needed by gluUnProject
+        glGetDoublev(GL_MODELVIEW_MATRIX, modelViewMatrix.data());
+        glGetDoublev(GL_PROJECTION_MATRIX, projectionMatrix.data());
+        glGetIntegerv(GL_VIEWPORT, viewport.data());
+    }
+    
     mainDisplayView = OpenGLContextManager::instance()->getFullscreenView();
     if (!mainDisplayView) {
         mainDisplayView = OpenGLContextManager::instance()->getMirrorView();
     }
     [mainDisplayView retain];
     
-    tracker = [[MouseTracker alloc] init];
+    tracker = [[MWKMouseTracker alloc] initWithMouseInputDevice:component_shared_from_this<MouseInputDevice>()];
     
     trackingArea = [[NSTrackingArea alloc] initWithRect:[mainDisplayView bounds]
                                                 options:(NSTrackingMouseEnteredAndExited |
@@ -71,6 +81,25 @@ bool MouseInputDevice::initialize() {
     [mainDisplayView addTrackingArea:trackingArea];
     
     return true;
+}
+
+
+void MouseInputDevice::postMouseLocation(NSPoint location) const {
+    NSPoint locationInPixels = [mainDisplayView convertPointToBacking:location];
+    GLdouble mouseX, mouseY, mouseZ;
+    
+    if (GLU_TRUE != gluUnProject(locationInPixels.x, locationInPixels.y, 0.0,
+                                 modelViewMatrix.data(),
+                                 projectionMatrix.data(),
+                                 viewport.data(),
+                                 &mouseX, &mouseY, &mouseZ))
+    {
+        merror(M_DISPLAY_MESSAGE_DOMAIN, "Unable to convert mouse location from window to eye coordinates");
+    } else {
+        MWTime time = Clock::instance()->getCurrentTimeUS();
+        posX->setValue(mouseX, time);
+        posY->setValue(mouseY, time);
+    }
 }
 
 

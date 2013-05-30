@@ -28,12 +28,18 @@ public:
     
     bool initialize() MW_OVERRIDE;
     
+    void postMouseLocation(NSPoint location) const;
+    
 private:
     VariablePtr posX;
     VariablePtr posY;
     
+    std::array<GLdouble, 16> modelViewMatrix;
+    std::array<GLdouble, 16> projectionMatrix;
+    std::array<GLint, 4> viewport;
+    
     NSOpenGLView *mainDisplayView;
-    MouseTracker *tracker;
+    MWKMouseTracker *tracker;
     NSTrackingArea *trackingArea;
     
 };

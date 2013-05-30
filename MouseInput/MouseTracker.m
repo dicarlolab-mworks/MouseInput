@@ -8,27 +8,72 @@
 
 #import "MouseTracker.h"
 
+#include "MouseInputDevice.h"
 
-@implementation MouseTracker
+
+@implementation MWKMouseTracker
+
+
+- (id)initWithMouseInputDevice:(boost::shared_ptr<mw::MouseInputDevice>)mouseInputDevice
+{
+    if ((self = [super init])) {
+        mouseInputDeviceWeak = mouseInputDevice;
+    }
+    
+    return self;
+}
 
 
 - (void)mouseEntered:(NSEvent *)theEvent
 {
-    
+    [self postMouseLocation:theEvent];
 }
 
 
 - (void)mouseExited:(NSEvent *)theEvent
 {
-    
+    [self postMouseLocation:theEvent];
 }
 
 
 - (void)mouseMoved:(NSEvent *)theEvent
 {
-    NSPoint location = [theEvent locationInWindow];
-    mw::mprintf("mouse location = (%g, %g)", location.x, location.y);
+    [self postMouseLocation:theEvent];
+}
+
+
+- (void)postMouseLocation:(NSEvent *)theEvent
+{
+    boost::shared_ptr<mw::MouseInputDevice> mouseInputDevice = mouseInputDeviceWeak.lock();
+    if (mouseInputDevice) {
+        mouseInputDevice->postMouseLocation([theEvent locationInWindow]);
+    }
 }
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

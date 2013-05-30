@@ -41,6 +41,7 @@
 		E1620CBB175644330068BCF6 /* MouseInputDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1620CB9175644330068BCF6 /* MouseInputDevice.cpp */; };
 		E1620CBE17564B4A0068BCF6 /* MouseTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = E1620CBD17564B4A0068BCF6 /* MouseTracker.m */; };
 		E1620CBF175653CF0068BCF6 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1620C9417563F350068BCF6 /* AppKit.framework */; };
+		E171A17F1757967900B91405 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E171A17E1757967900B91405 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		E1620CBA175644330068BCF6 /* MouseInputDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseInputDevice.h; sourceTree = "<group>"; };
 		E1620CBC17564B4A0068BCF6 /* MouseTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseTracker.h; sourceTree = "<group>"; };
 		E1620CBD17564B4A0068BCF6 /* MouseTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MouseTracker.m; sourceTree = "<group>"; };
+		E171A17E1757967900B91405 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			files = (
 				E1620CB6175642760068BCF6 /* MWorksCore.framework in Frameworks */,
 				E1620CBF175653CF0068BCF6 /* AppKit.framework in Frameworks */,
+				E171A17F1757967900B91405 /* OpenGL.framework in Frameworks */,
 				E1620CB8175642A10068BCF6 /* libboost_system.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +130,7 @@
 			children = (
 				E1620CB5175642760068BCF6 /* MWorksCore.framework */,
 				E1620C9417563F350068BCF6 /* AppKit.framework */,
+				E171A17E1757967900B91405 /* OpenGL.framework */,
 				E1620CB7175642A10068BCF6 /* libboost_system.a */,
 			);
 			name = Frameworks;
@@ -327,6 +331,7 @@
 				E1620CAB1756418C0068BCF6 /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
 		};
 		E1620CB1175641CE0068BCF6 /* Build configuration list for PBXAggregateTarget "Everything" */ = {
 			isa = XCConfigurationList;
@@ -334,6 +339,7 @@
 				E1620CB2175641CE0068BCF6 /* Development */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
 		};
 /* End XCConfigurationList section */
 	};
