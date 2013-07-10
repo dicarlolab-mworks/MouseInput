@@ -14,6 +14,7 @@ BEGIN_NAMESPACE_MW
 
 const std::string MouseInputDevice::MOUSE_POSITION_X("mouse_position_x");
 const std::string MouseInputDevice::MOUSE_POSITION_Y("mouse_position_y");
+const std::string MouseInputDevice::MOUSE_DOWN("mouse_down");
 
 
 void MouseInputDevice::describeComponent(ComponentInfo &info) {
@@ -23,6 +24,7 @@ void MouseInputDevice::describeComponent(ComponentInfo &info) {
     
     info.addParameter(MOUSE_POSITION_X);
     info.addParameter(MOUSE_POSITION_Y);
+    info.addParameter(MOUSE_DOWN);
 }
 
 
@@ -30,6 +32,7 @@ MouseInputDevice::MouseInputDevice(const ParameterValueMap &parameters) :
     IODevice(parameters),
     posX(parameters[MOUSE_POSITION_X]),
     posY(parameters[MOUSE_POSITION_Y]),
+    down(parameters[MOUSE_DOWN]),
     mainDisplayView(nil),
     tracker(nil),
     trackingArea(nil),
@@ -116,6 +119,13 @@ void MouseInputDevice::postMouseLocation(NSPoint location) const {
         MWTime time = Clock::instance()->getCurrentTimeUS();
         posX->setValue(mouseX, time);
         posY->setValue(mouseY, time);
+    }
+}
+
+
+void MouseInputDevice::postMouseState(bool isDown) const {
+    if (started) {
+        down->setValue(isDown, Clock::instance()->getCurrentTimeUS());
     }
 }
 

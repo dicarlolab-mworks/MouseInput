@@ -20,6 +20,7 @@ class MouseInputDevice : public IODevice, boost::noncopyable {
 public:
     static const std::string MOUSE_POSITION_X;
     static const std::string MOUSE_POSITION_Y;
+    static const std::string MOUSE_DOWN;
     
     static void describeComponent(ComponentInfo &info);
     
@@ -31,10 +32,12 @@ public:
     bool stopDeviceIO() MW_OVERRIDE;
     
     void postMouseLocation(NSPoint location) const;
+    void postMouseState(bool isDown) const;
     
 private:
     VariablePtr posX;
     VariablePtr posY;
+    VariablePtr down;
     
     std::array<GLdouble, 16> modelViewMatrix;
     std::array<GLdouble, 16> projectionMatrix;

@@ -18,6 +18,11 @@
 {
     if ((self = [super init])) {
         mouseInputDeviceWeak = mouseInputDevice;
+        eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:(NSLeftMouseDownMask | NSLeftMouseUpMask)
+                                                             handler:^(NSEvent *theEvent) {
+                                                                 [self postMouseState:theEvent];
+                                                                 return theEvent;
+                                                             }];
     }
     
     return self;
@@ -48,6 +53,22 @@
     if (mouseInputDevice) {
         mouseInputDevice->postMouseLocation([theEvent locationInWindow]);
     }
+}
+
+
+- (void)postMouseState:(NSEvent *)theEvent
+{
+    boost::shared_ptr<mw::MouseInputDevice> mouseInputDevice = mouseInputDeviceWeak.lock();
+    if (mouseInputDevice) {
+        mouseInputDevice->postMouseState([theEvent type] == NSLeftMouseDown);
+    }
+}
+
+
+- (void)dealloc
+{
+    [NSEvent removeMonitor:eventMonitor];
+    [super dealloc];
 }
 
 

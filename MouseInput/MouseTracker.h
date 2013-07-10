@@ -14,11 +14,9 @@ namespace mw {
 
 @interface MWKMouseTracker : NSObject {
     boost::weak_ptr<mw::MouseInputDevice> mouseInputDeviceWeak;
+    id eventMonitor;
 }
 
 - (id)initWithMouseInputDevice:(boost::shared_ptr<mw::MouseInputDevice>)mouseInputDevice;
-- (void)mouseEntered:(NSEvent *)theEvent;
-- (void)mouseExited:(NSEvent *)theEvent;
-- (void)mouseMoved:(NSEvent *)theEvent;
 
 @end
