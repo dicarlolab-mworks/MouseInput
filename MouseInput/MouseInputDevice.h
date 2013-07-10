@@ -21,6 +21,7 @@ public:
     static const std::string MOUSE_POSITION_X;
     static const std::string MOUSE_POSITION_Y;
     static const std::string MOUSE_DOWN;
+    static const std::string HIDE_CURSOR;
     
     static void describeComponent(ComponentInfo &info);
     
@@ -38,6 +39,7 @@ private:
     VariablePtr posX;
     VariablePtr posY;
     VariablePtr down;
+    const bool hideCursor;
     
     std::array<GLdouble, 16> modelViewMatrix;
     std::array<GLdouble, 16> projectionMatrix;

@@ -14,15 +14,25 @@
 @implementation MWKMouseTracker
 
 
+@synthesize shouldHideCursor;
+
+
 - (id)initWithMouseInputDevice:(boost::shared_ptr<mw::MouseInputDevice>)mouseInputDevice
 {
     if ((self = [super init])) {
         mouseInputDeviceWeak = mouseInputDevice;
-        eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:(NSLeftMouseDownMask | NSLeftMouseUpMask)
-                                                             handler:^(NSEvent *theEvent) {
-                                                                 [self postMouseState:theEvent];
-                                                                 return theEvent;
-                                                             }];
+        
+        upDownEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:(NSLeftMouseDownMask | NSLeftMouseUpMask)
+                                                                   handler:^(NSEvent *theEvent) {
+                                                                       [self postMouseState:theEvent];
+                                                                       return theEvent;
+                                                                   }];
+        
+        dragEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSLeftMouseDraggedMask
+                                                                 handler:^(NSEvent *theEvent) {
+                                                                     [self postMouseLocation:theEvent];
+                                                                     return theEvent;
+                                                                 }];
     }
     
     return self;
@@ -31,12 +41,18 @@
 
 - (void)mouseEntered:(NSEvent *)theEvent
 {
+    if (self.shouldHideCursor) {
+        [NSCursor hide];
+    }
     [self postMouseLocation:theEvent];
 }
 
 
 - (void)mouseExited:(NSEvent *)theEvent
 {
+    if (self.shouldHideCursor) {
+        [NSCursor unhide];
+    }
     [self postMouseLocation:theEvent];
 }
 
@@ -67,7 +83,8 @@
 
 - (void)dealloc
 {
-    [NSEvent removeMonitor:eventMonitor];
+    [NSEvent removeMonitor:upDownEventMonitor];
+    [NSEvent removeMonitor:dragEventMonitor];
     [super dealloc];
 }
 
