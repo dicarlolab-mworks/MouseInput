@@ -45,7 +45,9 @@ MouseInputDevice::MouseInputDevice(const ParameterValueMap &parameters) :
 
 MouseInputDevice::~MouseInputDevice() {
     if (trackingArea) {
-        [mainDisplayView removeTrackingArea:trackingArea];
+        [mainDisplayView performSelectorOnMainThread:@selector(removeTrackingArea:)
+                                          withObject:trackingArea
+                                       waitUntilDone:YES];
         [trackingArea release];
     }
     
@@ -79,14 +81,16 @@ bool MouseInputDevice::initialize() {
     tracker = [[MWKMouseTracker alloc] initWithMouseInputDevice:component_shared_from_this<MouseInputDevice>()];
     tracker.shouldHideCursor = hideCursor;
     
-    trackingArea = [[NSTrackingArea alloc] initWithRect:[mainDisplayView bounds]
-                                                options:(NSTrackingMouseEnteredAndExited |
-                                                         NSTrackingMouseMoved |
-                                                         NSTrackingActiveAlways)
-                                                  owner:tracker
-                                               userInfo:nil];
-    
-    [mainDisplayView addTrackingArea:trackingArea];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        trackingArea = [[NSTrackingArea alloc] initWithRect:[mainDisplayView bounds]
+                                                    options:(NSTrackingMouseEnteredAndExited |
+                                                             NSTrackingMouseMoved |
+                                                             NSTrackingActiveAlways)
+                                                      owner:tracker
+                                                   userInfo:nil];
+        
+        [mainDisplayView addTrackingArea:trackingArea];
+    });
     
     return true;
 }
@@ -109,6 +113,7 @@ void MouseInputDevice::postMouseLocation(NSPoint location) const {
         return;
     }
     
+    // This method is always called from the main thread, so we can call convertPointToBacking: directly
     NSPoint locationInPixels = [mainDisplayView convertPointToBacking:location];
     GLdouble mouseX, mouseY, mouseZ;
     
